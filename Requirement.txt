@@ -1,0 +1,219 @@
+Client: Sales Analytics Platform
+
+🎯 Business Problem
+
+Currently:
+
+Sales data is scattered across systems
+
+No real-time visibility into pipeline and revenue
+
+Hard to track sales team performance
+
+No centralized reporting
+
+We need:
+👉 A scalable data pipeline + analytics platform
+👉 Clean, transformed, and modeled data
+👉 Interactive dashboards for decision-making
+
+🏗️ Architecture Requirement
+
+| Layer          | Tool                                |
+| -------------- | ----------------------------------- |
+| Ingestion      | Azure Data Factory                  |
+| Raw Storage    | Azure Data Lake Storage (ADLS Gen2) |
+| Transformation | Azure Databricks (PySpark)          |
+| Data Warehouse | Azure Synapse Analytics             |
+| Visualization  | Power BI                            |
+
+
+
+Data Pipeline Requirements
+1. Ingestion (ADF)
+
+Build pipelines to:
+
+Ingest all CSV files into ADLS (Raw Layer)
+
+Schedule daily refresh
+
+Handle schema validation
+
+Log failures
+
+👉 Output:
+
+/raw/accounts/
+/raw/sales_pipeline/
+/raw/products/
+/raw/sales_teams/
+2. Data Lake Design
+
+Create 3 layers:
+
+/raw       → Original data
+/processed → Cleaned data
+/curated   → Business-ready data
+3. Transformation (Databricks)
+🔹 Step 1: Data Cleaning
+
+Handle null values
+
+Remove duplicates
+
+Standardize column names
+
+Convert date formats
+
+🔹 Step 2: Data Modeling
+
+Create Fact & Dimension Tables
+
+✅ Dimension Tables
+
+dim_accounts
+
+dim_products
+
+dim_sales_team
+
+dim_date
+
+✅ Fact Table
+
+fact_sales_pipeline
+
+🔹 Step 3: Business Logic
+
+Implement:
+
+Deal conversion rate
+
+Revenue calculation
+
+Sales cycle duration
+
+Stage-wise funnel tracking
+
+4. Data Warehouse (Synapse)
+
+Load curated data into Synapse
+
+Use star schema
+
+Optimize with:
+
+Partitioning
+
+Indexing
+
+📊 Power BI Dashboard Requirements
+🎯 Dashboard 1: Executive Overview
+
+Total Revenue
+
+Total Deals
+
+Win Rate %
+
+Avg Deal Size
+
+Revenue Trend (Monthly)
+
+📈 Dashboard 2: Sales Performance
+
+Revenue by Sales Rep
+
+Top Performing Teams
+
+Deals Closed per Rep
+
+Conversion Rate per Rep
+
+📦 Dashboard 3: Product Insights
+
+Revenue by Product
+
+Top Selling Products
+
+Product-wise Profitability
+
+🔄 Dashboard 4: Sales Funnel
+
+Leads → Qualified → Proposal → Won
+
+Drop-off at each stage
+
+Funnel visualization
+
+🧭 Dashboard 5: Account Insights
+
+Top Customers
+
+Revenue by Account
+
+Repeat vs New Customers
+
+⚙️ Advanced Requirements (IMPORTANT)
+🔥 1. Incremental Load
+
+Only load new/updated records
+
+Use watermarking (timestamp)
+
+🔥 2. Data Quality Checks
+
+Reject bad records
+
+Maintain error logs
+
+🔥 3. Parameterization (ADF)
+
+Dynamic pipelines for multiple datasets
+
+🔥 4. Automation
+
+Schedule daily pipeline run
+
+🔥 5. Monitoring
+
+Pipeline failure alerts
+
+🧠 KPIs to Calculate
+
+Total Revenue
+
+Win Rate = Won Deals / Total Deals
+
+Avg Deal Size
+
+Sales Cycle Time
+
+Revenue per Sales Rep
+
+Pipeline Value
+
+📁 Expected Deliverables
+1. GitHub Project Structure
+/data-engineering-project
+  /adf-pipelines
+  /databricks-notebooks
+  /sql-scripts
+  /powerbi
+  /docs
+2. Documentation
+
+Architecture diagram
+
+Data flow explanation
+
+Table schema
+
+KPIs definition
+
+3. Dashboard (Power BI)
+
+Interactive
+
+Filters (date, region, product, rep)
