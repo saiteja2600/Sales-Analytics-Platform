@@ -1,0 +1,50 @@
+{
+	"name": "salespipeline",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "opportunity_id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sales_agent",
+				"type": "nvarchar"
+			},
+			{
+				"name": "product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "account",
+				"type": "nvarchar"
+			},
+			{
+				"name": "deal_stage",
+				"type": "nvarchar"
+			},
+			{
+				"name": "engage_date",
+				"type": "date"
+			},
+			{
+				"name": "close_date",
+				"type": "date"
+			},
+			{
+				"name": "close_value",
+				"type": "smallint",
+				"precision": 5
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "sales_pipeline"
+		}
+	}
+}

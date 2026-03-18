@@ -1,0 +1,30 @@
+{
+	"name": "products",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "product",
+				"type": "nvarchar"
+			},
+			{
+				"name": "series",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sales_price",
+				"type": "smallint",
+				"precision": 5
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "products"
+		}
+	}
+}

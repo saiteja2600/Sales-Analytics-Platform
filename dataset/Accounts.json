@@ -1,0 +1,48 @@
+{
+	"name": "Accounts",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SqlServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "account",
+				"type": "nvarchar"
+			},
+			{
+				"name": "sector",
+				"type": "nvarchar"
+			},
+			{
+				"name": "year_established",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "revenue",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "employees",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "office_location",
+				"type": "nvarchar"
+			},
+			{
+				"name": "subsidiary_of",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "accounts"
+		}
+	}
+}
