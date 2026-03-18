@@ -1,0 +1,9 @@
+{
+	"name": "onlinefactory2026",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "37ff5153-9925-4de7-b7d0-31b50770166a",
+		"tenantId": "0d809588-6315-45a3-9ac2-7e4ee68414ec"
+	}
+}
