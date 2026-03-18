@@ -1,0 +1,17 @@
+{
+	"name": "Scripts",
+	"properties": {
+		"content": {
+			"query": "CREATE VIEW dbo.vAccounts AS\nSELECT *\nFROM OPENROWSET(\n    BULK 'https://onlineaccstorage.blob.core.windows.net/salesdata/sliver/accounts/part-00000-2cac6fbc-2e09-4d91-89f5-4200f241e8da.c000.snappy.parquet',\n    FORMAT = 'PARQUET'\n) AS Accounts;\n\nCREATE VIEW dbo.vData_Dictonary AS\nSELECT * FROM OPENROWSET(\n    BULK 'https://onlineaccstorage.blob.core.windows.net/salesdata/sliver/data_dictonary/part-00000-473ceff4-75bd-493f-9481-a014bed6f7f5.c000.snappy.parquet',\n    FORMAT = 'PARQUET'\n) as Data_Dictonary;\n\n\nCREATE VIEW dbo.vProducts AS\nSELECT * FROM OPENROWSET(\n    BULK 'https://onlineaccstorage.blob.core.windows.net/salesdata/sliver/products/part-00000-9e204c9c-bfcc-4edb-a8e7-5d719949c248.c000.snappy.parquet',\n    FORMAT = 'PARQUET'\n) as Products;\n\n\nCREATE VIEW dbo.vSale_Pipeline AS\nSELECT * FROM OPENROWSET(\n    BULK 'https://onlineaccstorage.blob.core.windows.net/salesdata/sliver/sales_pipeline/part-00000-788b6ef4-6e7f-4309-bd4a-d314ca373f06.c000.snappy.parquet',\n    FORMAT = 'PARQUET'\n) as Sale_Pipeline;\n\nCREATE VIEW dbo.vSale_team AS\nSELECT * FROM OPENROWSET(\n    BULK 'https://onlineaccstorage.blob.core.windows.net/salesdata/sliver/sales_team/part-00000-fac861b6-3da8-4b56-8235-f18f8daefe40.c000.snappy.parquet',\n    FORMAT = 'PARQUET'\n) as Sale_team;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "salesdata",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
